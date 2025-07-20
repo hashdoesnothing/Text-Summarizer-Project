@@ -3,7 +3,8 @@ from pathlib import Path
 import logging
 
 # keep a log of basic info
-logging.basicConfig(Level=logging.INFO, format="[%(asctime%)s]: %(message)s:")
+# "But how does this work"
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 project_name = "textSummarizer"
 
@@ -33,3 +34,35 @@ list_of_files = [
     "research/trials.ipynb"
     
 ]
+
+# in linus we use forward slash and in win we use backward slash
+# so we'll have to get it in a suitable format with the help of "pathlib" before creating dir 
+# >>> path = "something/someone"
+# >>> Path(path)
+# WindowsPath('something/someone')
+
+for filepath in list_of_files:
+    filepath = Path(filepath)
+    #create file dir and then the files with os.split
+    filedir, filename = os.path.split(filepath)
+
+    # if you already have the folder, it wont be creating a new one.
+    if filedir != "": ### "come back and get a better understanding of this logic"
+        os.makedirs(filedir, exist_ok=True)
+        # return what is happening to keep track or for debugging 
+        logging.info(f"Creating directory:{filedir} for the file {filename}") 
+
+        # if the filepath does not exist or it's size is zero
+        # returns zero when there is nothing in the file
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
+        # it'll try to write it so if it doesnt exists itll make one
+        with open(filepath, 'w') as f:
+            pass # we just wanna create it and not do anything else in it.
+            logging.info(f'Creating empty file: {filepath}')
+        
+    
+
+    else:
+        logging.info(f"{filename} already exists")
+
+    
