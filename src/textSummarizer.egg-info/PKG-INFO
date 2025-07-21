@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: textSummarizer
+Version: 0.0.0
+Summary: A small python package for NLP app
+Home-page: https://github.com/hash-dev-log/Text-Summarizer-Project
+Author: hash-dev-log
+Author-email: rh661187@gmail.com
+Project-URL: Bug Tracker, https://github.com/hash-dev-log/Text-Summarizer-Project/issues
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
+
+# Text-Summarizer-Project
+End-to-end NLP project. It's a text summarization project which has a prediction pipeline and a UI for the users. 
